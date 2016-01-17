@@ -6,6 +6,8 @@ WSServer.prototype._init = function(server){
   var io = require("socket.io").listen(server);
 
   io.on("connection", function(socket){
+    io.set("transports", ["xhr-polling"]);
+    io.set("polling duration", 10);
     socket.on('client/join', function(name){
       console.log("join from: ", name);
       socket.join(name);
