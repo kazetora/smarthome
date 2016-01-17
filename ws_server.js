@@ -3,7 +3,7 @@ function WSServer(server){
 }
 
 WSServer.prototype._init = function(server){
-  var io = require("socket.io")(server);
+  var io = require("socket.io").listen(server);
 
   io.on("connection", function(socket){
     socket.on('client/join', function(name){
