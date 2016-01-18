@@ -3,7 +3,7 @@ function WSServer(server){
 }
 
 WSServer.prototype._init = function(server){
-  var io = require("socket.io").listen(server);
+  var io = require("socket.io")(server);
 
   io.on("connection", function(socket){
     // io.set("transports", ["xhr-polling"]);
